@@ -39,6 +39,8 @@ public class Day2 : IDay
         public int ID = 0;
         public List<Set> Sets = new List<Set>();
         public bool IsValid = true;
+
+        private Set minimumCubes = new Set();
         
         public Game(string gameString)
         {
@@ -66,8 +68,31 @@ public class Day2 : IDay
                 set.AddGems(gem);
             }
             
+            UpdateMinimumSet(set);
+            
             Sets.Add(set);
             return set;
+        }
+
+        private void UpdateMinimumSet(Set set)
+        {
+            if (minimumCubes.Blue < set.Blue)
+            {
+                minimumCubes.Blue = set.Blue;
+            }
+            if (minimumCubes.Red < set.Red)
+            {
+                minimumCubes.Red = set.Red;
+            }
+            if (minimumCubes.Green < set.Green)
+            {
+                minimumCubes.Green = set.Green;
+            }
+        }
+        
+        public int CalculatePower()
+        {
+            return minimumCubes.Blue * minimumCubes.Green * minimumCubes.Red;
         }
     }
     
@@ -91,6 +116,15 @@ public class Day2 : IDay
 
     public string RunSecond(string[] lines)
     {
-        throw new NotImplementedException();
+        int sum = 0;
+        
+        foreach (string line in lines)
+        {
+            Game game = new Game(line);
+
+            sum += game.CalculatePower();
+        }
+
+        return sum.ToString();
     }
 }

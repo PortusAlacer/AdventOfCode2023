@@ -22,7 +22,7 @@ public static class Program
     {
         string dayString = "Day2";
         Version version = Version.Final;
-        DayVersion dayVersion = DayVersion.First;
+        DayVersion dayVersion = DayVersion.Second;
 
         string inputFileName = "../../../" + dayString + "/input";
         switch (version)
