@@ -10,11 +10,18 @@ public static class Program
         Test,
         Final
     }
+
+    enum DayVersion
+    {
+        First,
+        Second
+    }
     
     public static void Main(string[] args)
     {
         string dayString = "Day1";
         Version version = Version.Final;
+        DayVersion dayVersion = DayVersion.Second;
 
         string inputFileName = "../../../" + dayString + "/input";
         switch (version)
@@ -33,8 +40,17 @@ public static class Program
         // }
         
         Day1 day = new Day1();
-        
-        Console.WriteLine(day.Run(input));
+
+        switch (dayVersion)
+        {
+            case DayVersion.First:
+                Console.WriteLine(day.RunFirst(input));
+                break;
+            case DayVersion.Second:
+                Console.WriteLine(day.RunSecond(input));
+                break;
+        }
+       
     }
 }
 
