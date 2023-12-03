@@ -4,6 +4,15 @@ public static class LoadInput
 {
     public static string[] Read(string filePath)
     {
-        return File.ReadAllLines(filePath);
+        try
+        {
+            return File.ReadAllLines(filePath);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.ToString());
+        }
+
+        return null;
     }
 }

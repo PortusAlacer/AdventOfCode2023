@@ -2,7 +2,7 @@ using System.Diagnostics;
 
 namespace AdventOfCode2023.Day1;
 
-public class Day1
+public class Day1 : IDay
 {
     private string[] digits = new string[9]
     {

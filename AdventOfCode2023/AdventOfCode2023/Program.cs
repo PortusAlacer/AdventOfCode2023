@@ -2,6 +2,7 @@
 
 using AdventOfCode2023;
 using AdventOfCode2023.Day1;
+using AdventOfCode2023.Day2;
 
 public static class Program
 {
@@ -19,9 +20,9 @@ public static class Program
     
     public static void Main(string[] args)
     {
-        string dayString = "Day1";
+        string dayString = "Day2";
         Version version = Version.Final;
-        DayVersion dayVersion = DayVersion.Second;
+        DayVersion dayVersion = DayVersion.First;
 
         string inputFileName = "../../../" + dayString + "/input";
         switch (version)
@@ -39,7 +40,7 @@ public static class Program
         //     Console.WriteLine(line);
         // }
         
-        Day1 day = new Day1();
+        IDay day = new Day2();
 
         switch (dayVersion)
         {
