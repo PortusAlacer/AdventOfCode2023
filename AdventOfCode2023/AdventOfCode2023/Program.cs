@@ -1,3 +1,49 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-Console.WriteLine("Hello, World!");
+using AdventOfCode2023;
+using AdventOfCode2023.Day1;
+
+public static class Program
+{
+    enum Version
+    {
+        Test,
+        Final
+    }
+    
+    public static void Main(string[] args)
+    {
+        string dayString = "Day1";
+        Version version = Version.Final;
+
+        string inputFileName = "../../../" + dayString + "/input";
+        switch (version)
+        {
+            case Version.Test:
+                inputFileName += "_test";
+                break;
+        }
+        Console.WriteLine($"Input file name {inputFileName}");
+        
+        string[] input = LoadInput.Read(inputFileName);
+
+        // foreach (string line in input)
+        // {
+        //     Console.WriteLine(line);
+        // }
+        
+        Day1 day = new Day1();
+        
+        Console.WriteLine(day.Run(input));
+    }
+}
+
+
+
+
+
+
+
+
+
+
